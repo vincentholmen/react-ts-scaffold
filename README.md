@@ -84,5 +84,5 @@ render(){
 
 }
 // COMPONENT IS CALLED WITH
-<LikeCounter message={someStrOrVar}></LikeCounter>
+<LikeCounter></LikeCounter>
 ````
