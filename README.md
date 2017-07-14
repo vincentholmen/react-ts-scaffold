@@ -9,14 +9,16 @@ npm install
 
 ### Serve App
 ````
-npm wpserve
+npm run wpserve
 ````
 
 
 ## PASSING DATA BETWEEN REACT COMPONENTS
-##### PROPS vs STATE
+#### PROPS vs STATE
 Components have both State and Props
 
+---
+###### PROPS
 Props: READONLY Application state that is passed into a Component.
 
 **Components must never manipulate props directly**
@@ -43,4 +45,44 @@ render(){
 }
 // COMPONENT IS CALLED WITH
 <AlertBox message={someStrOrVar}></AlertBox>
+````
+---
+###### STATE
+STATE: Local state of component, can be passed to child components as Props.
+
+**Components State can be manipulated after init with this.setState({valueA:""})**
+
+State is useful for isolated components.
+````javascript
+/*
+Using State in a Component
+*/
+//OPTIONS INTERFACE => use any if you prefer to not define props or state type
+interface LikesCounterState {
+    likes: number
+}
+
+class LikesCounter extends React.Component <any, LikesCounterState> {
+constructor(props){
+    super(props);
+    this.state = { likes: 4}
+
+}
+
+handleLikeClick(e) {
+    e.preventDefault();
+    this.setState({likes: 4++});
+}
+render(){
+    return (
+        <div className="likesCounter">
+        <span className="likeTotal">{this.state.likes}</span>
+        <button onClick={handleLikeClick}>Like</button>
+        </div>
+    )
+}
+
+}
+// COMPONENT IS CALLED WITH
+<LikeCounter message={someStrOrVar}></LikeCounter>
 ````

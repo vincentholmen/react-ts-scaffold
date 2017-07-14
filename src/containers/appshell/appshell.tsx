@@ -1,6 +1,7 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom";
 import { Appbar } from "../appbar/appbar";
+import { LikesCounter } from "../../components/likecounter/likecounter"
 import {BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
 
 export interface AppProps{
@@ -12,6 +13,7 @@ export class AppShell extends React.Component<AppProps, any >{
             <div>
             <Appbar>
             <h3>WOOOO</h3>
+            <LikesCounter></LikesCounter>
             </Appbar>
             <h1>{this.props.title}</h1>
             <Router>

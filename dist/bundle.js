@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d189e8ecb991693cf8f2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f9c83d4931ac42d8653e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -706,7 +706,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(62)(__webpack_require__.s = 62);
+/******/ 	return hotCreateRequire(63)(__webpack_require__.s = 63);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2529,8 +2529,8 @@ exports.Appbar = Appbar;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var ReactDOM = __webpack_require__(61);
-var containers_1 = __webpack_require__(60);
+var ReactDOM = __webpack_require__(62);
+var containers_1 = __webpack_require__(61);
 var history_1 = __webpack_require__(33);
 var history = history_1.createBrowserHistory();
 ReactDOM.render(React.createElement(containers_1.AppShell, { title: "Vinces React-Ts Scaffold" }), document.getElementById("root"));
@@ -6222,7 +6222,48 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
+var LikesCounter = (function (_super) {
+    __extends(LikesCounter, _super);
+    function LikesCounter(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = { likes: 4 };
+        return _this;
+    }
+    LikesCounter.prototype.handleLikeClick = function (e) {
+        e.preventDefault();
+        var newCount = this.state.likes + 1;
+        this.setState({ likes: newCount });
+    };
+    LikesCounter.prototype.render = function () {
+        return (React.createElement("div", { className: "likesCounter" },
+            React.createElement("span", { className: "likeTotal" }, this.state.likes),
+            React.createElement("button", { onClick: this.handleLikeClick.bind(this) }, "Like")));
+    };
+    return LikesCounter;
+}(React.Component));
+exports.LikesCounter = LikesCounter;
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(0);
 var appbar_1 = __webpack_require__(24);
+var likecounter_1 = __webpack_require__(59);
 var react_router_dom_1 = __webpack_require__(50);
 var AppShell = (function (_super) {
     __extends(AppShell, _super);
@@ -6232,7 +6273,8 @@ var AppShell = (function (_super) {
     AppShell.prototype.render = function () {
         return (React.createElement("div", null,
             React.createElement(appbar_1.Appbar, null,
-                React.createElement("h3", null, "WOOOO")),
+                React.createElement("h3", null, "WOOOO"),
+                React.createElement(likecounter_1.LikesCounter, null)),
             React.createElement("h1", null, this.props.title),
             React.createElement(react_router_dom_1.BrowserRouter, null,
                 React.createElement("div", { className: "rootContainer" },
@@ -6247,26 +6289,26 @@ exports.AppShell = AppShell;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var appshell_1 = __webpack_require__(59);
+var appshell_1 = __webpack_require__(60);
 exports.AppShell = appshell_1.AppShell;
 var appbar_1 = __webpack_require__(24);
 exports.Appbar = appbar_1.Appbar;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(26);
