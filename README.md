@@ -86,3 +86,45 @@ render(){
 // COMPONENT IS CALLED WITH
 <LikeCounter></LikeCounter>
 ````
+
+
+## REDUX:
+Redux is a state management framework that are composed of a "Store", "Reducers", and "Actions";
+
+The paradigm of Redux is to create a uni-directional data flow within an application, this can often be confusing and explained in overly technical terms.
+
+Generally, Redux is composed of a Singular store, where the state of the application lives.
+---
+### Reducers:
+Merge new state with current state and return the updated state Object pertaining to that reducers obligation
+
+**Note**: Best practice calls for reducers with single responsibility for each branch of the state tree.
+
+````javascript
+import { Reducer } from "redux";
+import { AppState } from "../store";
+import { StoreActions, UserLikeAction } from "../actions";
+
+export const UserLikesReducer: Reducer<number> = (state: number = 0, action: UserLikeAction) => {
+    const ACTION_TYPES : any = {
+        "LIKE_ADD" : () => {
+            //instead of spread operator
+            // return Object.assign({}, state, {likes: state.likes + action.value})
+            return state + action.value;
+        },
+        "LIKE_REMOVE" : () => {
+
+            return state - action.value;
+        },
+        "DEFAULT": () => {
+            return state;
+        },
+    };
+    const ACTION_KEY = (ACTION_TYPES.hasOwnProperty(action.type)) ? action.type : "DEFAULT"
+    console.log(ACTION_TYPES)
+    return ACTION_TYPES[ACTION_KEY]();
+};
+
+
+````
+---
