@@ -1,0 +1,1 @@
+export {LikesCounter} from './likecounter/likecounter'

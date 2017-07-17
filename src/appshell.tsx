@@ -1,8 +1,8 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom";
-import { Appbar } from "../appbar/appbar";
-import { LikesCounter } from "../../components/likecounter/likecounter"
-import {BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
+import { Appbar } from "./containers/appbar/appbar";
+import { LikesCounter } from "./components/likecounter/likecounter"
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
 export interface AppProps{
 title: string
 }
